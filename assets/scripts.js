@@ -2,17 +2,10 @@ $(document).ready(function() {
 /***********
 VARIABLES
 **********/
-    var $body = $('body');
-    var $checkbox = $('#switch');
     var megaMenuItem = $('.mega-menu a')
     var menuHeight = $('.mega-menu').outerHeight();
     var hamburgerMenuHeight = $('.hamburger-menu').outerHeight();
     var hamburgerMenuItem = $('.hamburger-menu a');
-    var birthDate = new Date(1998, 7, 8); // Month is 0-indexed (7 = August)
-    var today = new Date();
-    var years = today.getFullYear() - birthDate.getFullYear();
-    var description = $('.description');
-
 
 /***********
 SCROLL TO TOP
@@ -147,27 +140,5 @@ const $myButton = $('#toTop');
         imageWrapper.append(figure);
         imageContainer.append(imageWrapper);
     }
-
-    /*********
-     LAST PUSH API
-     *********/
-    var repoOwner = 'marcokleimans';
-    var repoName = 'marcokleimans.github.io';
-
-    $.get(`https://api.github.com/repos/${repoOwner}/${repoName}/events`, function(data) {
-        var lastPushEvent = data.find(event => event.type === 'PushEvent');
-        if (lastPushEvent) {
-            var lastPushTimestamp = lastPushEvent.created_at;
-            var lastPushDate = new Date(lastPushTimestamp);
-            const options = {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-            };
-            var formattedDate = lastPushDate.toLocaleString("en-US", options);
-            $('.last-push').text(formattedDate);
-        }
-    });
 });
 
