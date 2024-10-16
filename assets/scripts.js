@@ -45,6 +45,7 @@ const $myButton = $('#toTop');
             $(this).attr('src', originalSrc);
         }
     );
+
 /***********
  MENU BORDER
  **********/
@@ -55,7 +56,6 @@ const $myButton = $('#toTop');
         $(this).addClass('active');
 
     });
-
 /***************
  HAMBURGER MENU TOGGLE
 ******************/
@@ -67,67 +67,65 @@ const $myButton = $('#toTop');
     hamburgerMenuItem.on('click', function() {
         $('.hamburger-menu-container').removeClass('open');
     });
-
-/*********
- CALCULATE AGE
- *********/
-
-    var isBeforeBirthday = (today.getMonth() < birthDate.getMonth()) ||
-        (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate());
-    if (isBeforeBirthday) {
-        years--;
-    }
-    var lastBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
-    if (isBeforeBirthday) {
-        lastBirthday.setFullYear(today.getFullYear() - 1);
-    }
-    var daysSinceLastBirthday = Math.floor((today - lastBirthday) / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
-    $('.age').text(years + ' years and ' + daysSinceLastBirthday + ' days old');
-
     /************
-     READ MORE - DESCRIPTION
+     WORK EXPERIENCE EXPAND/COLLAPSE
      *************/
-    $('.btn-2.read-more').on('click', function() {
-        var description = $(this).prev('.description');
+    $('.accordion-short').on('click', function () {
+        const moreInfo = $(this).next('.accordion-more-info');
+        const icon = $(this).find('i.text-end');
 
-        // Check if the description is expanded
-        if (description.hasClass('expanded')) {
-            description.removeClass('expanded');
-            $(this).text('Read More');
+        moreInfo.slideToggle(300);
+        moreInfo.toggleClass('expand minimize');
+
+
+        $(this).toggleClass('expand minimize');
+
+        if (icon.hasClass('fa-plus')) {
+            icon.removeClass('fa-plus').addClass('fa-minus');
+            moreInfo.css('display', 'flex');
         } else {
-            description.addClass('expanded');
-            $(this).text('Read Less');
+            icon.removeClass('fa-minus').addClass('fa-plus');
         }
     });
+    /*********
+     MENU SCROLL
+     *********/
+
+    function handleMenuClick(menuItem, offsetHeight) {
+        $(menuItem).on('click', function(event) {
+            event.preventDefault();
+
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                var scrollOffset = target.offset().top - offsetHeight;
+                $('html, body').animate({
+                    scrollTop: scrollOffset
+                }, 0);
+            }
+        });
+    }
+    handleMenuClick(hamburgerMenuItem, hamburgerMenuHeight);
     /************
-     Remove shadow on scroll
+     SCROLL AWARDS
      *************/
-    description.on('scroll', function() {
-        if ($(this).hasClass('expanded')) {
-            $(this).find('.shadow').css('display', 'none');
-        } else {
-            $(this).find('.shadow').css('display', 'block');
-        }
+    const $contentWrapper = $('.content-wrapper');
+
+    $('#scroll-left').on('click', function() {
+        $contentWrapper.animate({
+            scrollLeft: '-=500' // Adjust the number to control scroll speed
+        }); // Adjust the animation speed as needed
     });
-    $('.btn-2').on('click', function() {
-        if (!description.hasClass('expanded')) {
-            description.find('.shadow').css('display', 'block');
-            description.animate({ scrollTop: 0 }, 'slow');
-        }
+
+    $('#scroll-right').on('click', function() {
+        $contentWrapper.animate({
+            scrollLeft: '+=500' // Adjust the number to control scroll speed
+        }); // Adjust the animation speed as needed
     });
-    /************
-     TABS
-     *************/
-    $('.tab-link').on('click', function() {
-        var tabID = $(this).data('tab');
-        $('.tab-panel').hide();
-        $('.tab-link').removeClass('active');
-        $('#' + tabID).fadeIn(300);
-        $(this).addClass('active');
-    });
+
     /*********
      DISPLAY IMAGES DYNAMICALLY
      *********/
+
     const imageContainer = $('#gallery-image-container');
     const totalImages = 68;
 
@@ -149,15 +147,7 @@ const $myButton = $('#toTop');
         imageWrapper.append(figure);
         imageContainer.append(imageWrapper);
     }
-    /*********
-     HIDE FORM AFTER SUBMISSION
-     *********/
-    $('form').on('submit', function(event) {
-        $(this).fadeOut();
-        setTimeout(function() {
-            $('.alert-success').show()
-        }, 2000);
-    })
+
     /*********
      LAST PUSH API
      *********/
