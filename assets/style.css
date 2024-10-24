@@ -250,7 +250,6 @@ SPECIFIC THEME ELEMENTS
 .full-screen .full-width-wrapper#awards .height-container{
     overflow-y: scroll;
     max-height: 500px;
-    padding-bottom: 30px;
     margin: 0;
 }
 .full-screen .full-width-wrapper#awards .height-container iframe,
