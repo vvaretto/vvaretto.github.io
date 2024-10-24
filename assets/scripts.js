@@ -119,26 +119,26 @@ const $myButton = $('#toTop');
      DISPLAY IMAGES DYNAMICALLY
      *********/
 
-    const imageContainer = $('#gallery-image-container');
-    const totalImages = 68;
-
-    for (let i = 0; i <= totalImages; i++) {
-
-        const imageWrapper = $('<div>', {
-            class: 'image-wrapper col-lg-3 col-md-4 col-sm-6 col-12'
-        });
-
-        const figure = $('<figure>');
-
-        const img = $('<img>', {
-            src: `/assets/images/gallery/life_in_digital_${i}.jpg`,
-            alt: `life_in_digital_${i}`,
-            class: 'dynamic-image'
-        });
-
-        figure.append(img);
-        imageWrapper.append(figure);
-        imageContainer.append(imageWrapper);
-    }
+    // const imageContainer = $('#gallery-image-container');
+    // const totalImages = 68;
+    //
+    // for (let i = 0; i <= totalImages; i++) {
+    //
+    //     const imageWrapper = $('<div>', {
+    //         class: 'image-wrapper col-lg-3 col-md-4 col-sm-6 col-12'
+    //     });
+    //
+    //     const figure = $('<figure>');
+    //
+    //     const img = $('<img>', {
+    //         src: `/assets/images/gallery/life_in_digital_${i}.jpg`,
+    //         alt: `life_in_digital_${i}`,
+    //         class: 'dynamic-image'
+    //     });
+    //
+    //     figure.append(img);
+    //     imageWrapper.append(figure);
+    //     imageContainer.append(imageWrapper);
+    // }
 });
 
