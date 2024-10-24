@@ -12,8 +12,8 @@ SCROLL TO TOP
  **********/
 
 const $myButton = $('#toTop');
-    $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 100) {
+    $('body').on('scroll', function() {
+        if ($(this).scrollTop() > 200) {
             $myButton.fadeIn();
         } else {
             $myButton.fadeOut();
