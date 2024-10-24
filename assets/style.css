@@ -28,7 +28,7 @@ html,body{
     overflow-x:hidden;
     max-width: 100vw;
     scroll-behavior: smooth;
-    /*background: #a872bc;*/
+    background: #a872bc;
 }
 h3{
     font-size: 24px;
@@ -107,7 +107,7 @@ THEME - FULL SCREEN
 /*
 full-width/height background
 */
-html, body {
+html, body.full-screen {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -262,7 +262,7 @@ SPECIFIC THEME ELEMENTS
     margin: 0 auto 15px auto;
     max-width: 90%;
 }
-.full-screen .full-width-wrapper .content-wrapper .height-container{
+.full-screen .full-width-wrapper#awards .content-wrapper .height-container{
     width: 100%;
 }
 .fa-envelope:hover{
