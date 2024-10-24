@@ -98,22 +98,6 @@ const $myButton = $('#toTop');
         });
     }
     handleMenuClick(hamburgerMenuItem, hamburgerMenuHeight);
-    /************
-     SCROLL AWARDS
-     *************/
-    const $contentWrapper = $('.content-wrapper');
-
-    $('#scroll-left').on('click', function() {
-        $contentWrapper.animate({
-            scrollLeft: '-=500' // Adjust the number to control scroll speed
-        }); // Adjust the animation speed as needed
-    });
-
-    $('#scroll-right').on('click', function() {
-        $contentWrapper.animate({
-            scrollLeft: '+=500' // Adjust the number to control scroll speed
-        }); // Adjust the animation speed as needed
-    });
 
     /*********
      DISPLAY IMAGES DYNAMICALLY
