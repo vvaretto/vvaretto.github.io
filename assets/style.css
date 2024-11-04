@@ -262,6 +262,71 @@ SPECIFIC THEME ELEMENTS
 .full-screen .full-width-wrapper#awards .content-wrapper .height-container{
     width: 100%;
 }
+.online-courses-wrapper figure,
+.gallery-container figure{
+    overflow: hidden;
+    box-shadow:  0 0 10px var(--gloom);
+}
+.online-courses-wrapper img,
+.gallery-container img{
+    transition: transform 1s ease;
+    max-width: 100%;
+}
+.online-courses-wrapper img:hover,
+.gallery-container img:hover{
+    transform: scale(1.05);
+}
+.carousel{
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    box-shadow:  0 0 15px var(--gloom);
+}
+.carousel-caption{
+    background-color: rgba(18,18,18,0.9);
+    border-radius: 15px;
+    padding: 10px;
+}
+.carousel button{
+    background: rgba(18,18,18,0.3);
+    border-radius: 15px;
+    max-width: 50px;
+    max-height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 15px;
+}
+.gallery-container{
+    /*position: absolute;*/
+    /*top: -50px;*/
+    max-height: 70vh;
+    overflow-y: scroll;
+    margin-top:-50px;
+    margin-bottom:-50px;
+}
+.gallery-shadow-top{
+    display: block;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    background: rgba(1, 1, 1, 0.5);
+    background: linear-gradient(180deg, rgba(1, 1, 1, 0.5), rgba(255, 255, 255, 0.0));
+    width: 100%;
+    height: 50px;
+}
+.gallery-shadow-bottom{
+    display: block;
+    position: relative;
+    z-index: 1;
+    background: rgba(1, 1, 1, 0.5);
+    background: linear-gradient(0deg, rgba(1, 1, 1, 0.7), rgba(255, 255, 255, 0.0));
+    width: 100%;
+    height: 50px;
+}
+.dynamic-image{
+   max-width: 100%;
+}
 .fa-envelope:hover{
     color:  #ea4336;
 }
