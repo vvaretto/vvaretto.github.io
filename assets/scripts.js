@@ -80,49 +80,31 @@ const $myButton = $('#toTop');
             icon.removeClass('fa-minus').addClass('fa-plus');
         }
     });
-    /*********
-     MENU SCROLL
-     *********/
-
-    function handleMenuClick(menuItem, offsetHeight) {
-        $(menuItem).on('click', function(event) {
-            event.preventDefault();
-
-            var target = $(this.getAttribute('href'));
-            if (target.length) {
-                var scrollOffset = target.offset().top - offsetHeight;
-                $('html, body').animate({
-                    scrollTop: scrollOffset
-                }, 0);
-            }
-        });
-    }
-    handleMenuClick(hamburgerMenuItem, hamburgerMenuHeight);
 
     /*********
      DISPLAY IMAGES DYNAMICALLY
      *********/
 
-    // const imageContainer = $('#gallery-image-container');
-    // const totalImages = 68;
-    //
-    // for (let i = 0; i <= totalImages; i++) {
-    //
-    //     const imageWrapper = $('<div>', {
-    //         class: 'image-wrapper col-lg-3 col-md-4 col-sm-6 col-12'
-    //     });
-    //
-    //     const figure = $('<figure>');
-    //
-    //     const img = $('<img>', {
-    //         src: `/assets/images/gallery/life_in_digital_${i}.jpg`,
-    //         alt: `life_in_digital_${i}`,
-    //         class: 'dynamic-image'
-    //     });
-    //
-    //     figure.append(img);
-    //     imageWrapper.append(figure);
-    //     imageContainer.append(imageWrapper);
-    // }
+    const imageContainer = $('#gallery-image-container');
+    const totalImages = 35;
+    
+    for (let i = 0; i <= totalImages; i++) {
+    
+        const imageWrapper = $('<div>', {
+            class: 'image-wrapper col-lg-3 col-md-4 col-sm-6 col-12'
+        });
+    
+        const figure = $('<figure>');
+    
+        const img = $('<img>', {
+            src: `assets/images/gallery/gallery_${i}.jpg`,
+            alt: `life_in_digital_${i}`,
+            class: 'dynamic-image'
+        });
+    
+        figure.append(img);
+        imageWrapper.append(figure);
+        imageContainer.append(imageWrapper);
+    }
 });
 
