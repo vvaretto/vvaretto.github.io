@@ -245,19 +245,16 @@ SPECIFIC THEME ELEMENTS
     border-radius: 0 0 5px 5px;
 }
 .full-screen .full-width-wrapper#awards .height-container{
-    overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 500px;
     margin: 0;
 }
-.full-screen .full-width-wrapper#awards .height-container iframe,
 .full-screen .full-width-wrapper#awards .height-container img{
     box-shadow: 0 0 5px var(--cupcake);
     padding: 0;
     border-radius: 5px;
     display: block;
     margin: 0 auto 15px auto;
-    max-width: 90%;
+    max-width: 96%;
 }
 .full-screen .full-width-wrapper#awards .content-wrapper .height-container{
     width: 100%;
